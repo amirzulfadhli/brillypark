@@ -10,7 +10,7 @@
 
 ## ⚡ Key Features
 
-* 📡 **Real-Time Space Tracking:** Uses HC-SR04 ultrasonic sensors to detect vehicle presence in real-time.
+* 📡 **Real-Time Space Tracking:** Uses IR sensors to detect vehicle presence in real-time.
 * ⚡ **Low Power & Fast Execution:** Native C++ firmware optimized for ESP32 microcontrollers.
 * 📊 **Live Status Updates:** Transmits parking occupancy status dynamically across configured nodes.
 * 🚦 **Visual Indicators:** LED/Display integration for instant local status feedback.
@@ -22,7 +22,7 @@
 | Component | Quantity | Description |
 | :--- | :---: | :--- |
 | **ESP32 NodeMCU** | 1 | Main microcontroller board |
-| **HC-SR04 Sensor** | 2+ | Ultrasonic distance detection module |
+| **IR Sensor** | 2+ | Infrared detection module |
 | **LED Indicators** | 2+ | Red/Green status indicator lights |
 | **Breadboard & Wires** | — | Prototyping connection cables |
 
