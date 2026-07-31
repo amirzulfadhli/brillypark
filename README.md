@@ -35,3 +35,12 @@
      │
      └─── GPIO 2  ───> [ Green LED ] (Space Available)
      └─── GPIO 4  ───> [ Red LED ]   (Space Occupied)
+```
+### 📐 Architecture Flow
+
+```mermaid
+graph TD;
+    Sensors[Thermal / Flame Sensors] -->|Analog/Digital Data| ESP32[ESP32 Microcontroller];
+    ESP32 -->|MQTT Telemetry| Server[Alert Dispatcher];
+    ESP32 -->|I2C| Display[OLED Display];
+
