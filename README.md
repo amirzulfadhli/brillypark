@@ -1,46 +1,44 @@
 # 🚗 BrillyPark — Smart IoT Parking System
 
-[![ESP32](https://img.shields.io/badge/Hardware-ESP32-blue?style=for-the-badge&logo=espressif)](https://www.espressif.com/)
-[![Language](https://img.shields.io/badge/Language-C%2B%2B-00599C?style=for-the-badge&logo=cplusplus)](https://isocpp.org/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+## 📝 Intro
+BrillyPark is a real-time smart parking space monitoring system designed for commercial and urban spaces. Utilizing microcontroller-level infrared sensing, it detects vehicle occupancy in real time, processes data with low power consumption, and updates driver interface displays instantaneously.
 
-> An IoT-powered real-time parking space monitoring system built with **ESP32**, **C++**, and **ultrasonic sensors**. Designed for efficient parking management and real-time occupancy tracking.
+## 🛠 Technologies I Used
+- **Languages:** Native C++ (Arduino Framework / PlatformIO)
+- **Hardware:** ESP32 NodeMCU, Ultrasonic / IR Sensors, OLED Display, LED Status Indicators
+- **Protocols:** I2C, Wi-Fi, MQTT
 
----
+## ✨ Features
+- **Real-Time Space Tracking:** Sub-second detection of vehicle presence across multiple monitored slots.
+- **Low-Power C++ Firmware:** Native firmware optimized for minimal latency and high ESP32 memory efficiency.
+- **Dynamic Visual Feedback:** On-site OLED visual displays and local LED indicators for instant driver feedback.
 
-## ⚡ Key Features
+## 🔄 The Process
+1. **Circuit Architecture:** Designed the breadboard layout and pin mapping connecting IR sensors and display units to the ESP32.
+2. **Firmware Architecture:** Wrote asynchronous C++ routines using non-blocking delays (`millis()`) to continuously poll sensors while rendering updates.
+3. **State Management:** Created a centralized occupancy manager to calculate available spaces and format status strings.
+4. **Hardware Verification:** Stress-tested sensor distance thresholds under varied lighting and physical conditions.
 
-* 📡 **Real-Time Space Tracking:** Uses IR sensors to detect vehicle presence in real-time.
-* ⚡ **Low Power & Fast Execution:** Native C++ firmware optimized for ESP32 microcontrollers.
-* 📊 **Live Status Updates:** Transmits parking occupancy status dynamically across configured nodes.
-* 🚦 **Visual Indicators:** LED/Display integration for instant local status feedback.
+## 💡 What I Learned
+- Learned non-blocking embedded programming techniques to avoid processor stalls during display updates.
+- Understood signal bouncing and debouncing logic needed for reliable infrared sensor readings.
+- Mastered hardware component allocation and GPIO pin management on microcontrollers.
 
----
+## 🚀 How It Could Be Improved
+- **Cloud Dashboard:** Add a WebSockets or Firebase web dashboard for remote slot booking and historical occupancy trends.
+- **License Plate Recognition:** Integrate an ESP32-CAM module to track specific registered vehicles.
+- **Solar Power:** Optimize firmware for ultra-low-power deep sleep modes powered by small solar modules.
 
-## 🛠️ Hardware Requirements
+## ⚙️ Running the Project
 
-| Component | Quantity | Description |
-| :--- | :---: | :--- |
-| **ESP32 NodeMCU** | 1 | Main microcontroller board |
-| **IR Sensor** | 2+ | Infrared detection module |
-| **LED Indicators** | 2+ | Red/Green status indicator lights |
-| **Breadboard & Wires** | — | Prototyping connection cables |
+### Prerequisites
+- [PlatformIO](https://platformio.org/) installed in VS Code (or Arduino IDE).
 
----
+### Steps
+```bash
+# Clone the repository
+git clone [https://github.com/amirzulfadhli/brillypark.git](https://github.com/amirzulfadhli/brillypark.git)
+cd brillypark
 
-## 🔌 Circuit & Pinout Setup
-
-```text
-  [ ESP32 ] ─────── (Trig / Echo) ─────── [ HC-SR04 Sensor ]
-     │
-     └─── GPIO 2  ───> [ Green LED ] (Space Available)
-     └─── GPIO 4  ───> [ Red LED ]   (Space Occupied)
-```
-### 📐 Architecture Flow
-
-```mermaid
-graph TD;
-    Sensors[Thermal / Flame Sensors] -->|Analog/Digital Data| ESP32[ESP32 Microcontroller];
-    ESP32 -->|MQTT Telemetry| Server[Alert Dispatcher];
-    ESP32 -->|I2C| Display[OLED Display];
-
+# Build and upload firmware to connected ESP32
+pio run --target upload
