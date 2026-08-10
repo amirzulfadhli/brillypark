@@ -5,7 +5,7 @@ BrillyPark is a real-time smart parking space monitoring system designed for com
 
 ##  Technologies I Used
 - **Languages:** Native C++ (Arduino Framework / PlatformIO)
-- **Hardware:** ESP32 NodeMCU, Ultrasonic / IR Sensors, OLED Display, LED Status Indicators
+- **Hardware:** Arduino Giga R1 Wifi / ESP32, IR Sensors, OLED Display, LED Status Indicators
 - **Protocols:** I2C, Wi-Fi, MQTT
 
 ##  Features
@@ -26,11 +26,11 @@ BrillyPark is a real-time smart parking space monitoring system designed for com
 
 ##  How It Could Be Improved
 - **Cloud Dashboard:** Add a WebSockets or Firebase web dashboard for remote slot booking and historical occupancy trends.
-- **License Plate Recognition:** Integrate an ESP32-CAM module to track specific registered vehicles.
-- **Solar Power:** Optimize firmware for ultra-low-power deep sleep modes powered by small solar modules.
+- **License Plate Recognition:** Integrate a Raspberry Pi module to track specific registered vehicles.
+- **AI Integrated Camera:** Replace the IR sensor to automate the detection of vehicle presence
 
 ##  Running the Project
 
 ### Prerequisites
-- [PlatformIO](https://platformio.org/) installed in VS Code (or Arduino IDE).
+
 
